@@ -20,12 +20,12 @@ typedef union
 int main(void)
 {
 	HANDLE	hCOM;				/* Serial port handle */
-	DCB		serialFormat = {0};	/* DCB parameters for serial port */
+	DCB	serialFormat = {0};		/* DCB parameters for serial port */
 	BOOL	status;				/* Port status */
 	COMMTIMEOUTS timeout = {0};		/* timeout parameters for port */
 	DWORD	bytesRead;			/* counter for bytes read from serial port */
 	INPUT	in[12];				/* Input buffer for simulating keypress */	
-	int		portNumber;		/* Serial port number to listen on */
+	int	portNumber;			/* Serial port number to listen on */
 	wchar_t	portPath[50];			/* Path name for windows to open */
 	int i;					/* General loop counter */
 
@@ -38,12 +38,12 @@ int main(void)
 
 	printf("Attempting to open COM%d...\n",portNumber);
 	hCOM = CreateFile(	portPath,
-						GENERIC_READ,
-						0,
-						NULL,
-						OPEN_EXISTING,
-						0,
-						NULL);
+				GENERIC_READ,
+				0,
+				NULL,
+				OPEN_EXISTING,
+				0,
+				NULL);
 
 	if(hCOM == INVALID_HANDLE_VALUE)
 	{
@@ -95,10 +95,10 @@ int main(void)
 	{
 		prevState = buttonState;
 		ReadFile(	hCOM,
-					&buttonState.state_word,
-					2,
-					&bytesRead,
-					NULL);
+				&buttonState.state_word,
+				2,
+				&bytesRead,
+				NULL);
 
 		for(i = 0; i < 12; i++)
 		{
