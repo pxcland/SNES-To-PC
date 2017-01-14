@@ -22,12 +22,12 @@ int main(void)
 	HANDLE	hCOM;				/* Serial port handle */
 	DCB		serialFormat = {0};	/* DCB parameters for serial port */
 	BOOL	status;				/* Port status */
-	COMMTIMEOUTS timeout = {0};	/* timeout parameters for port */
+	COMMTIMEOUTS timeout = {0};		/* timeout parameters for port */
 	DWORD	bytesRead;			/* counter for bytes read from serial port */
 	INPUT	in[12];				/* Input buffer for simulating keypress */	
-	int		portNumber;			/* Serial port number to listen on */
-	wchar_t	portPath[50];		/* Path name for windows to open */
-	int i;						/* General loop counter */
+	int		portNumber;		/* Serial port number to listen on */
+	wchar_t	portPath[50];			/* Path name for windows to open */
+	int i;					/* General loop counter */
 
 	buttonState_t buttonState = {0xFFFF};	/* button state which is received over serial port */
 	buttonState_t prevState = {0xFFFF};
